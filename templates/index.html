@@ -1,0 +1,22 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Usage Profiling</title>
+    <script>
+        async function getSpaceUsage() {
+            const response = await fetch('/space_usage');
+            const result = await response.json();
+            document.getElementById('result').innerText = `Tree Size: ${result.size} bytes, Number of Nodes: ${result.nodes}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>AVL Tree Space Usage Profiling</h1>
+    <button onclick="getSpaceUsage()">Run Space Usage Test</button>
+    <p id="result"></p>
+</body>
+</html>

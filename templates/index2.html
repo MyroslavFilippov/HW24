@@ -1,0 +1,24 @@
+<!-- templates/index2.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Consumption Profiling</title>
+    <script>
+        async function getTimeConsumption() {
+            const response = await fetch('/time_consumption');
+            const result = await response.json();
+            document.getElementById('result').innerText = `Average Insertion Time: ${result.avg_insertion_time.toFixed(6)} seconds,
+                Average Search Time: ${result.avg_search_time.toFixed(6)} seconds,
+                Average Deletion Time: ${result.avg_deletion_time.toFixed(6)} seconds`;
+        }
+    </script>
+</head>
+<body>
+    <h1>AVL Tree Time Consumption Profiling</h1>
+    <button onclick="getTimeConsumption()">Run Time Consumption Test</button>
+    <p id="result"></p>
+</body>
+</html>
